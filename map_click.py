@@ -104,6 +104,13 @@ class QV(QtWidgets.QGraphicsView):
 
         super().drawBackground(painter, rect)
 
+    def mouseReleaseEvent(self, QMouseEvent):
+        """ Méthode qui renvoie le numéro de la case sur laquelle a cliqué l'utilisateur"""
+        pos_x = (QMouseEvent.x()//Settings.WIDTH)+1
+        pos_y = (QMouseEvent.y()// Settings.HEIGHT) + 1
+        case = ((pos_y -1)*Settings.NUM_BLOCKS_X)+(pos_x)
+        print(case)
+
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     a = QS()
